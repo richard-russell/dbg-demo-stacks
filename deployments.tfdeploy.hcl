@@ -30,10 +30,6 @@ deployment_group "dev" {
   auto_approve_checks = [deployment_auto_approve.safe_changes]
 }
 
-deployment_group "test" {
-  auto_approve_checks = [deployment_auto_approve.safe_changes]
-}
-
 deployment_group "prod" {
   # Manual approval required for production changes
 }
