@@ -10,4 +10,6 @@ deployment "lz_04" {
     role_arn            = local.role_arn
     identity_token      = identity_token.aws.jwt
   }
+
+  deployment_group = deployment_group.dev
 }
