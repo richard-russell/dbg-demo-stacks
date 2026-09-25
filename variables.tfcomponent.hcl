@@ -37,3 +37,14 @@ variable "extra_tags" {
   description = "Additional tags to merge into all resources"
   default     = {}
 }
+
+variable "role_arn" {
+  type        = string
+  description = "AWS IAM Role ARN for Workload Identity"
+}
+
+variable "identity_token" {
+  type        = string
+  description = "OIDC identity token"
+  ephemeral   = true
+}
