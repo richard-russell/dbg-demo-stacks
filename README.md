@@ -9,8 +9,11 @@ This repository demonstrates **Terraform Stacks** (GA syntax: `.tfcomponent.hcl`
 ### Architecture
 
 - **Stack Component (`.tfcomponent.hcl`)**: Defines the infrastructure abstraction by referencing the local `modules/landing-zone` module, configuring required AWS providers, inputs, and outputs.
-- **Deployments (`.tfdeploy.hcl`)**: Declares 20 distinct deployment instances (`lz_01` to `lz_20`) with dedicated CIDRs, environment configurations, and resource names.
-- **Deployment Group & Auto-Approval**: Groups all 20 deployments into the `dev` group with non-destructive change auto-approval rules.
+- **Deployments (`.tfdeploy.hcl`)**: Declares 60 distinct deployment instances (`lz_01_dev`..`lz_20_dev`, `lz_01_test`..`lz_20_test`, `lz_01_prod`..`lz_20_prod`) across dev, test, and prod.
+- **Deployment Groups & Auto-Approval**: Organizes deployments into 3 deployment groups:
+  - `dev`: Auto-approves safe non-destructive changes.
+  - `test`: Auto-approves safe non-destructive changes.
+  - `prod`: Requires manual plan review and approval before apply.
 
 ## Repository Structure
 

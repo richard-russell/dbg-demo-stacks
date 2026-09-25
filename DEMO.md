@@ -27,16 +27,20 @@ This guide demonstrates how **Terraform Stacks** models 20 landing zones and dir
 **Action**: Modify an input for a single landing zone (e.g., update `extra_tags` in [`lz-11.tfdeploy.hcl`](dbg-demo-stacks/lz-11.tfdeploy.hcl:1)).
 
 ```hcl
-deployment "lz_11" {
+deployment "lz_11_dev" {
   inputs = {
-    name                = "stack-lz-11"
+    name                = "stack-lz-11-dev"
     cidr                = "10.11.0.0/16"
     environment         = "dev"
     region              = "eu-west-1"
     enable_s3           = true
     enable_ssm_advanced = true
-    extra_tags          = { Demo = "demo-3-stacks", Deployment = "lz-11", Updated = "true" }
+    extra_tags          = { Demo = "demo-3-stacks", Deployment = "lz-11-dev", Environment = "dev", Updated = "true" }
+    role_arn            = local.role_arn
+    identity_token      = identity_token.aws.jwt
   }
+
+  deployment_group = deployment_group.dev
 }
 ```
 
@@ -54,7 +58,9 @@ deployment "lz_11" {
 **Observation**:
 - A single configuration upload or VCS push triggers runs across all 20 deployments.
 - Demonstrates Stacks' strength: **Zero manual scripting required to coordinate a fleet-wide update**.
-- Deployment plans run across all 20 deployments with isolated state evaluation.
+- Deployment plans run across all 60 deployments (dev, test, prod).
+- Deployments in `dev` and `test` groups automatically approve if non-destructive changes are detected.
+- Deployments in `prod` pause at the plan stage, requiring explicit manual review and approval before apply.
 
 ---
 
