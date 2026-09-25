@@ -25,7 +25,7 @@ dbg-demo-stacks/
 ├── lz-02.tfdeploy.hcl          # Deployment block for lz-02
 ├── ...                         # Individual .tfdeploy.hcl files (lz-01 to lz-20)
 ├── lz-20.tfdeploy.hcl          # Deployment block for lz-20
-├── deployments.tfdeploy.hcl    # Deployment group 'dev' & auto-approval rules
+├── deployments.tfdeploy.hcl    # Deployment configurations
 ├── modules/
 │   └── landing-zone/           # Local landing-zone module
 │       ├── main.tf

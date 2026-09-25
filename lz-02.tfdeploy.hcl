@@ -9,5 +9,4 @@ deployment "lz_02" {
     extra_tags          = { Demo = "demo-3-stacks", Deployment = "lz-02" }
   }
 
-  deployment_group = deployment_group.dev
 }

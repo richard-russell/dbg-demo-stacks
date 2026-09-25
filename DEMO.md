@@ -54,7 +54,7 @@ deployment "lz_11" {
 **Observation**:
 - A single configuration upload or VCS push triggers runs across all 20 deployments.
 - Demonstrates Stacks' strength: **Zero manual scripting required to coordinate a fleet-wide update**.
-- Deployment auto-approval rules (`deployment_auto_approve "safe_changes"`) automatically approve non-destructive plans across the deployment group.
+- Deployment plans run across all 20 deployments with isolated state evaluation.
 
 ---
 
