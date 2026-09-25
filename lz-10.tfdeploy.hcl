@@ -8,4 +8,6 @@ deployment "lz_10" {
     enable_ssm_advanced = true
     extra_tags          = { Demo = "demo-3-stacks", Deployment = "lz-10" }
   }
+
+  deployment_group = deployment_group.dev
 }
