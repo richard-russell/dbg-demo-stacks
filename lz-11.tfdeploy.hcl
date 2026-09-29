@@ -6,7 +6,7 @@ deployment "lz_11_prod" {
     region              = "eu-west-1"
     enable_s3           = true
     enable_ssm_advanced = true
-    extra_tags          = { Demo = "demo-3-stacks", Deployment = "lz-11-prod", Environment = "prod" }
+    extra_tags          = { Demo = "demo-3-stacks", Deployment = "lz-11-prod", Environment = "prod", ModifiedBy = "Richard" }
     role_arn            = local.role_arn
     identity_token      = identity_token.aws.jwt
   }
