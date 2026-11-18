@@ -7,6 +7,7 @@ locals {
       Name        = lower(var.name)
       Environment = var.environment
       ManagedBy   = "Terraform"
+      Demo        = "Siteng"
     },
     var.extra_tags
   )
